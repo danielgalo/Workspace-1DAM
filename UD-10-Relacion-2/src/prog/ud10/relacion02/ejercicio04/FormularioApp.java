@@ -30,16 +30,16 @@ public class FormularioApp {
 
   // Minimum characters for username
   private static final int MIN_USER_CHAR = 1;
-  
+
   // Maximun characters for username
   private static final int MAX_USER_CHAR = 8;
-  
+
   // Minimum characters dor password
   private static final int MIN_PSWD_CHAR = 5;
-  
+
   // Maximum characters for password
   private static final int MAX_PSWD_CHAR = 10;
-  
+
   /** Titulo */
   private JFrame frmFormularioDeRegistro;
 
@@ -268,6 +268,86 @@ public class FormularioApp {
 
     scrollPane = new JScrollPane();
     GroupLayout groupLayout = new GroupLayout(frmFormularioDeRegistro.getContentPane());
+    horizontalLayout(lblNewLabel, lblContrasea, lblConfirmaContrasea, lblCursoAPresentar, panel,
+        lblDatosDeRegistro, panel_1, groupLayout);
+    verticalLayout(lblNewLabel, lblContrasea, lblConfirmaContrasea, lblCursoAPresentar, panel,
+        lblDatosDeRegistro, panel_1, groupLayout);
+
+    textAreaData = new JTextArea();
+    scrollPane.setViewportView(textAreaData);
+    textAreaData.setEditable(false);
+
+    frmFormularioDeRegistro.getContentPane().setLayout(groupLayout);
+  }
+
+  /* MÉTODOS DE CLASE */
+
+  /**
+   * Sets vertical group layout
+   * 
+   * @param lblNewLabel
+   * @param lblContrasea
+   * @param lblConfirmaContrasea
+   * @param lblCursoAPresentar
+   * @param panel
+   * @param lblDatosDeRegistro
+   * @param panel_1
+   * @param groupLayout
+   */
+  public void verticalLayout(JLabel lblNewLabel, JLabel lblContrasea, JLabel lblConfirmaContrasea,
+      JLabel lblCursoAPresentar, JPanel panel, JLabel lblDatosDeRegistro, JPanel panel_1,
+      GroupLayout groupLayout) {
+    groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        .addGroup(groupLayout.createSequentialGroup().addGap(13)
+            .addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+                .addComponent(txtUser, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+                    GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblNewLabel))
+            .addGap(8)
+            .addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+                .addComponent(txtPswd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+                    GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblContrasea))
+            .addGap(8)
+            .addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+                .addComponent(txtConfirmPswd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+                    GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblConfirmaContrasea))
+            .addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                .addGroup(groupLayout.createSequentialGroup().addGap(18).addComponent(cboxCurso,
+                    GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+                    GroupLayout.PREFERRED_SIZE))
+                .addGroup(groupLayout.createSequentialGroup()
+                    .addPreferredGap(ComponentPlacement.UNRELATED)
+                    .addComponent(lblCursoAPresentar)))
+            .addGap(18)
+            .addComponent(panel, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+            .addGap(18)
+            .addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+            .addGap(18).addComponent(btnRegister).addGap(12)
+            .addComponent(lblDatosDeRegistro, GroupLayout.PREFERRED_SIZE, 20,
+                GroupLayout.PREFERRED_SIZE)
+            .addGap(18)
+            .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(60, Short.MAX_VALUE)));
+  }
+
+
+  /**
+   * Sets horizontal group layout
+   * 
+   * @param lblNewLabel
+   * @param lblContrasea
+   * @param lblConfirmaContrasea
+   * @param lblCursoAPresentar
+   * @param panel
+   * @param lblDatosDeRegistro
+   * @param panel_1
+   * @param groupLayout
+   */
+  public void horizontalLayout(JLabel lblNewLabel, JLabel lblContrasea, JLabel lblConfirmaContrasea,
+      JLabel lblCursoAPresentar, JPanel panel, JLabel lblDatosDeRegistro, JPanel panel_1,
+      GroupLayout groupLayout) {
     groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
         .addGroup(groupLayout.createSequentialGroup().addContainerGap().addGroup(groupLayout
             .createParallelGroup(Alignment.LEADING)
@@ -302,48 +382,9 @@ public class FormularioApp {
             .addComponent(panel_1, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 414,
                 GroupLayout.PREFERRED_SIZE))
             .addContainerGap()));
-    groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-        .addGroup(groupLayout.createSequentialGroup().addGap(13)
-            .addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-                .addComponent(txtUser, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                    GroupLayout.PREFERRED_SIZE)
-                .addComponent(lblNewLabel))
-            .addGap(8)
-            .addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-                .addComponent(txtPswd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                    GroupLayout.PREFERRED_SIZE)
-                .addComponent(lblContrasea))
-            .addGap(8)
-            .addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-                .addComponent(txtConfirmPswd, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                    GroupLayout.PREFERRED_SIZE)
-                .addComponent(lblConfirmaContrasea))
-            .addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-                .addGroup(groupLayout.createSequentialGroup().addGap(18).addComponent(cboxCurso,
-                    GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-                    GroupLayout.PREFERRED_SIZE))
-                .addGroup(groupLayout.createSequentialGroup()
-                    .addPreferredGap(ComponentPlacement.UNRELATED)
-                    .addComponent(lblCursoAPresentar)))
-            .addGap(18)
-            .addComponent(panel, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
-            .addGap(18)
-            .addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
-            .addGap(18).addComponent(btnRegister).addGap(12)
-            .addComponent(lblDatosDeRegistro, GroupLayout.PREFERRED_SIZE, 20,
-                GroupLayout.PREFERRED_SIZE)
-            .addGap(18)
-            .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 143, GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(60, Short.MAX_VALUE)));
-
-    textAreaData = new JTextArea();
-    scrollPane.setViewportView(textAreaData);
-    textAreaData.setEditable(false);
-
-    frmFormularioDeRegistro.getContentPane().setLayout(groupLayout);
   }
 
-  /* MÉTODOS DE CLASE */
+
 
   /**
    * Register the user data if fields are correct
@@ -373,13 +414,18 @@ public class FormularioApp {
 
       // Añadir el texto al textArea
       textAreaData.setText(registerResult);
-
+      
       // Si no coinciden contraseñas sacamos error
     } else {
       textAreaData.setText(getErrorMsg(user, password, confirmPassword));
     }
   }
 
+  /**
+   * Returns string with selected documentation
+   * 
+   * @return
+   */
   private String getSelectedDocumentations() {
     String documentation = "";
 
@@ -415,8 +461,9 @@ public class FormularioApp {
    * @return true if correct, false if not
    */
   public boolean validateFields(String user, String password, String confirmPassword) {
-    return confirmPassword.equals(password) && (user.length() >= MIN_USER_CHAR && user.length() <= MAX_USER_CHAR)
-        && (password.length() > MIN_PSWD_CHAR && password.length() <= MAX_PSWD_CHAR);
+    return confirmPassword.equals(password)
+        && (user.length() >= MIN_USER_CHAR && user.length() <= MAX_USER_CHAR)
+        && (password.length() >= MIN_PSWD_CHAR && password.length() <= MAX_PSWD_CHAR);
   }
 
   /**
